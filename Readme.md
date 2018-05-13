@@ -1,7 +1,7 @@
 
-![AWS Architecture Diagram](images/architecture.png "AWS Architecture")
+![AWS Architecture Diagram](images/architecture1.png "AWS Architecture")
 
-# Ember Serverless on AWS
+# Serverless Web Application with approval in Step function on AWS. Alexa Skill to check status.
 
 [A Serverless AWS app. It utilizes a fully serverless architecture:
 
