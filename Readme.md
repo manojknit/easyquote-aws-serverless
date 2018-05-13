@@ -1,5 +1,5 @@
 
-![AWS Architecture Diagram](images/architecture.png "AWS Architecture")
+![AWS Architecture Diagram](images/architecture1.png "AWS Architecture")
 
 # Serverless Web Application with approval in Step function on AWS. Alexa Skill to check status.
 
