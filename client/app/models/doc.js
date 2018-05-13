@@ -13,6 +13,7 @@
 */
 import DS from 'ember-data';
 import attr from 'ember-data/attr';
+import date from 'ember-data/transforms/date';
 
 /**
  * This local model coorisponds to items
@@ -22,5 +23,22 @@ import attr from 'ember-data/attr';
  * in view templates
  */
 export default DS.Model.extend({
-	content: attr('string')
+              approved_date: attr('date'),
+              comment: attr('string'),
+              date_requested: attr('date'),
+              product_approved_by: attr('string'),
+              product_approved_price: attr('string'),
+              product_requested_price: attr('number'),
+              product_to_buy: attr('string'),
+              quote_name: attr('string'),
+              quote_status: attr('string'),
+              customer:attr('string'),
+              token: attr('string'),
+              requested_by: attr('string'),
+              valid_from: attr('date'),
+              valid_to: attr('date')
 });
+
+isApproved: Ember.computed('quote_status', function() {
+  return this.get('quote_status') != "approved";
+})

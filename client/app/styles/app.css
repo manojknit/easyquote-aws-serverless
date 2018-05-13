@@ -11,12 +11,31 @@ body {
   margin-top:75px;
 }
 
+span.bold-red {
+    color: red;
+    font-weight: bold;
+}
+
+span.bold-green {
+    color: green;
+    font-weight: bold;
+}
+
+span.bold-orange {
+    color: orange;
+    font-weight: bold;
+}
+
+span.bold-blue {
+    color: blue;
+    font-weight: bold;
+}
 /** Login **/
 .panel-login {
   max-width: 400px;
 }
 
-/** navbar **/
+/** navbar 
 .navbar-brand {
 	padding: 10px 15px;
 }
@@ -29,6 +48,42 @@ body {
 .navbar-toggle {
 	border-radius: 0;
 	border: 0;
+} **/
+.navbar-custom {
+    background-color:#215599;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #33aa33;
+}
+
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+    background-color:#33aa33;
+}
+.nav {
+    display: inline-block;
 }
 
 /** jumbotron **/
@@ -49,7 +104,8 @@ body {
 
 .panel-default .panel-heading {
 	background-image: none;
-	background-color: #EEE;
+	background-color: #215599;
+        color:#FFFFFF;
 }
 
 .panel-primary .panel-heading {
@@ -62,15 +118,31 @@ body {
   border-radius: 0;
 }
 
+
 /** form elements **/
 
 .form-control {
 	border-radius: 0;
 }
 
-.input-group-addon {
-	border-radius: 0;
+.form-group{
+    display:block;
+    clear:both;
+    width:100%;
 }
+
+/** .input-group-addon {
+	border-radius: 0;
+}**/
+.input-group-addon {
+    min-width:30px;// if you want width please write here //
+    text-align:left;
+}
+
+.glyphicon-save-file {
+    color:#215599;
+}
+
 
 /** modal **/
 .modal-content {
@@ -80,4 +152,26 @@ body {
 /** well **/
 .well {
 	border-radius: 0;
+}
+
+#module {
+  width: 500px;
+}
+
+#module p.collapse[aria-expanded="false"] {
+    display: block;
+    height: 40px !important;
+    overflow: hidden;
+}
+
+#module p.collapsing[aria-expanded="false"] {
+    height: 40px !important;
+}
+
+#module a.collapsed:after  {
+    content: '+ Show More';
+}
+
+#module a:not(.collapsed):after {
+    content: '- Show Less';
 }

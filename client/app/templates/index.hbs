@@ -1,17 +1,20 @@
 {{outlet}}
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-custom navbar-fixed-top">
   <div class="container-fluid">
 
     <div class="navbar-header">
       <a class="navbar-brand" href="/">
-        Ember Serverless
+        Easy Quote 
       </a>
     </div>
 
     <div class="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-      	<li>
+      	<li> <span class="navbar-brand">   {{ jwt.email }}</span></li>
+       <li>{{ link-to 'ListQuotes' 'index' }}</li>
+        <li>{{ link-to 'AddQuote' 'addquery' }}</li>
+        <li>
       		<a {{ action "logout" }} href="javascript:void(null)">Logout</a>
       	</li>
       </ul>
@@ -19,52 +22,50 @@
 
   </div>
 </nav>
-
 <div class="row">
-	<div class="col-xs-12 col-sm-12 col-md-12">
-		<div class="panel panel-default">
-		  <div class="panel-heading"><h3 class="panel-title">JWT Decoded</h3></div>
-		  <div class="panel-body">
-		  <ul>
-		  	{{#each-in jwt as |key val|}}
-		  		<li><strong>{{key}}</strong>  {{ val }}</li>
-		  	{{/each-in}}
-		  </ul>
-		  </div>
-		</div>
-	</div>
-	<div class="col-xs-12 col-sm-12 col-md-12">
-		<div class="panel panel-default">
-		  <div class="panel-heading"><h3 class="panel-title">Dynamo Items</h3></div>
-		  <div class="panel-body">
-		    
-		    <form class="form-inline" {{action "createItem" on="submit"}}>
-			  <div class="form-group">
-			    <label class="sr-only">New Item</label>
-			    <div class="input-group">
-			      <div class="input-group-addon"><i class="glyphicon glyphicon-save-file"></i></div>
-			      {{input value=item id='content' class="form-control" placeholder="Content" required="required"}}
-			    </div>
-			  </div>
-			  <button type="submit" class="btn btn-primary">Create Item</button>
-			</form>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><h3 class="panel-title">List Quotes</h3></div>
+                  <div class="panel-body">
+                        <ul class="list-group">
+                                {{#each model.docs as |item|}}
+                                        <li class="list-group-item">
+                                                <span class="bold-blue"> Quote Name: </span>
+                                                {{ item.quote_name }} <br/>
 
-			<hr/>
+						<span class="bold-blue"> Customer: </span>	
+                                                <small>{{ item.customer }}</small><br/>
+                                                
+                                                <span class="bold-blue"> Product: </span>
+                                                <small>{{ item.product_to_buy }}</small><br/>
 
-			<ul class="list-group">
-  				{{#each model.docs as |item|}}
-  					<li class="list-group-item">
-  						{{ item.content }} <br/>
-  						<small>{{ item.id }}</small>
-  						<span class="pull-right">
-  							<a class="btn btn-info btn-xs" href="javascript:void(null)" {{ action "removeItem" item.id }} title="Remove Item">
-  								<i class="glyphicon glyphicon-remove"></i>
-							</a>
-  						</span>
-					</li>
-  				{{/each}}
-  			</ul>
-		  </div>
-		</div>
-	</div>
+                                                <span class="bold-blue"> Price: </span>
+                                                <small>{{ item.product_requested_price }}</small><br/>
+                       
+
+
+                                                {{#if (eq item.quote_status "approved")}}
+                                                <span class="bold-blue"> Status: </span>
+                                                <span class="bold-green"> Approved </span>
+                                                {{/if}}
+
+                                                {{#if (eq item.quote_status "rejected")}}
+                                                 <span class="bold-blue"> Status: </span>                                                
+                                                 <span class="bold-red"> Rejected </span>
+                                                {{/if}}
+                                                {{#if (eq item.quote_status "Submitted")}}
+                                                 <span class="bold-blue"> Status: </span>
+                                                 <span class="bold-orange"> Submitted </span>
+                                                {{/if}}
+                                                <span class="pull-right">
+                                                        <a class="btn btn-info btn-xs" href="javascript:void(null)" {{ action "removeItem" item.id }} title="Remove Item">
+                                                                <i class="glyphicon glyphicon-remove"></i>
+                                                        </a>
+                                                </span>
+                                        </li>
+                                {{/each}}
+                        </ul>
+                 </div>
+             </div>
+        </div>
 </div>

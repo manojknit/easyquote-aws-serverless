@@ -25,12 +25,63 @@ export default Ember.Controller.extend({
 	}),
 	actions: {
 		createItem() {
-			let content = this.get('item');
+			/* let content = this.get('item');
 			if (!content) {
 				return alert('Please enter some content');
-			}
+      } */
+      let quote_name = this.get('quote_name');
+			if (!quote_name) {
+				return alert('Please enter some quote name.');
+      }
+      let product_to_buy = this.get('product_to_buy');
+			if (!product_to_buy) {
+				return alert('Please enter product to buy.');
+      }
+      let product_requested_price = this.get('product_requested_price');
+			if (!product_requested_price) {
+				return alert('Please enter product requested price.');
+      }
+      let customer = this.get('customer');
+			if (!customer) {
+				return alert('Please enter customer.');
+      }
+      let valid_from = this.get('valid_from');
+			if (!valid_from) {
+				return alert('Please enter valid from.');
+      }
+      let valid_to = this.get('valid_to');
+			if (!valid_to) {
+				return alert('Please enter valid to.');
+      }
+      //if RSM
+      let requested_by = this.get('cognito').get('user').username;
+      let quote_status = 'Submitted';
+      let date_requested = Date();
+      //let requested_by = user;
+      //else
+      let approved_date = Date();
+      let product_approved_price = this.get('product_requested_price');
+      let product_approved_by = this.get('cognito').get('user').username;
+
+      let comment = this.get('comment');
+      let token = '';
+
+
 			let	doc = this.get('store').createRecord('doc', {
-					'content': content
+        'approved_date': approved_date,
+        'comment': comment,
+        'date_requested': date_requested,
+        'product_approved_by': product_approved_by,
+        'product_approved_price': product_approved_price,
+        'product_requested_price': product_requested_price,
+        'product_to_buy': product_to_buy,
+        'quote_name': quote_name,
+        'quote_status': quote_status,
+        'customer':customer,
+        'token': token,
+        'requested_by': requested_by,
+        'valid_from': valid_from,
+        'valid_to': valid_to
 				});
 			doc.save()
 				.then(function(data) {
