@@ -3,24 +3,39 @@
 
 # Serverless Web Application with approval in Step function on AWS. Alexa Skill to check status.
 
-[A Serverless AWS app. It utilizes a fully serverless architecture:
+A Serverless AWS app. It utilizes a fully serverless architecture:
 
  - Cognito User Pools for authentication, registration, and confirmation
  - API Gateway for REST API authenticated with Cognito User Pools
  - Lambda and DynamoDB as a Backend
  - CloudFormation and SAM for Infrastructure management
 
-The application utilizes Ember.js methodology by abstracting API Gateway communication into adapters, allowing you to write controller code utilizing ember models. The API Gateway SDK that is generated from API Gateway can easily be replaced if you update your API by simple replacing the `vendor/apiGateway-js-sdk` with the generated one from API Gateway. Lambda functions can easily be updated by running the included `cloud/deploy.sh` bash script which simply runs the appropriate cloudformation commands for you.
+## Application Highlights
+* Online Quote submission capability 
+* Quote approval workflow in cloud
+* Email approval
+* Alexa Support
+* Price prediction using ML
+* Reporting Dashboard using AWS QuickSight
+* SSO – Amazon Cognito
+* CICD
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
+You need to install following on your computer or in cloud.
 
 * [Git](https://git-scm.com/)
+* Visual Studio Code
 * [Node.js](https://nodejs.org/) (with NPM)
 * [Bower](https://bower.io/)
 * [AWS CLI](https://aws.amazon.com/cli)
 * [Ember CLI](https://ember-cli.com/)
+* AWS account
+
+## Diagrams
+Amazon Machine Learning is used to predict the appropriate quote for the user according to previously approved quotes. The CSV file containing the previously approved quotes is stored in an Amazon S3 bucket which is loaded into Amazon Machine Learning. Then, Amazon Machine Learning performs the Real-Time Bayesian prediction algorithm using the previously approved quotes and displays the result of the prediction to the screen.
+[AWS ML Diagram](images/AWS ML.png "AWS ML Architecture")
+[CICD Diagram](images/CICD.png "CICD")
 
 ## Installation
 
