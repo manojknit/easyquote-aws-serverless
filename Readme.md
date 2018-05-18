@@ -97,5 +97,5 @@ Note: For same folder structure in S3 you can drag folder to s3.
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
-Thank You
+Thank You</br>
 Manoj Kumar
