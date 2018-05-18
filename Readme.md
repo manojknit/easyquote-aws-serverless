@@ -9,6 +9,20 @@ A Serverless AWS app with step function approval workflow. It utilizes a fully s
  - Lambda and DynamoDB as a Backend
  - CloudFormation and SAM for Infrastructure management
 
+## AWS Architecture Diagram
+</br>
+AWS Architecture</br>
+<img src="images/architecture1.png">
+</br>
+Amazon Machine Learning is used to predict the appropriate quote for the user according to previously approved quotes. The CSV file containing the previously approved quotes is stored in an Amazon S3 bucket which is loaded into Amazon Machine Learning. Then, Amazon Machine Learning performs the Real-Time Bayesian prediction algorithm using the previously approved quotes and displays the result of the prediction to the screen.</br>
+AWS ML Diagram</br>
+<img src="images/AWS ML.png">
+</br>
+CICD Diagram
+</br>
+<img src="images/CICD.png">
+</br>
+
 ## Application Highlights
 * Online Quote submission capability 
 * Quote approval workflow in cloud
@@ -30,20 +44,6 @@ You need to install following on your computer or in cloud.
 * [AWS CLI](https://aws.amazon.com/cli)
 * [Ember CLI](https://ember-cli.com/)
 * AWS account
-
-## AWS Architecture Diagram
-</br>
-AWS Architecture</br>
-<img src="images/architecture1.png">
-</br>
-Amazon Machine Learning is used to predict the appropriate quote for the user according to previously approved quotes. The CSV file containing the previously approved quotes is stored in an Amazon S3 bucket which is loaded into Amazon Machine Learning. Then, Amazon Machine Learning performs the Real-Time Bayesian prediction algorithm using the previously approved quotes and displays the result of the prediction to the screen.</br>
-AWS ML Diagram</br>
-<img src="images/AWS ML.png">
-</br>
-CICD Diagram
-</br>
-<img src="images/CICD.png">
-</br>
 
 
 ## Installation
