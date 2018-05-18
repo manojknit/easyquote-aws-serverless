@@ -33,9 +33,15 @@ You need to install following on your computer or in cloud.
 * AWS account
 
 ## Diagrams
-Amazon Machine Learning is used to predict the appropriate quote for the user according to previously approved quotes. The CSV file containing the previously approved quotes is stored in an Amazon S3 bucket which is loaded into Amazon Machine Learning. Then, Amazon Machine Learning performs the Real-Time Bayesian prediction algorithm using the previously approved quotes and displays the result of the prediction to the screen.
-[AWS ML Diagram](images/AWS ML.png "AWS ML Architecture")
-[CICD Diagram](images/CICD.png "CICD")
+Amazon Machine Learning is used to predict the appropriate quote for the user according to previously approved quotes. The CSV file containing the previously approved quotes is stored in an Amazon S3 bucket which is loaded into Amazon Machine Learning. Then, Amazon Machine Learning performs the Real-Time Bayesian prediction algorithm using the previously approved quotes and displays the result of the prediction to the screen.</br>
+AWS ML Diagram</br>
+<img src="images/AWS ML.png">
+</br>
+CICD Diagram
+</br>
+<img src="images/CICD.png">
+</br>
+
 
 ## Installation
 
