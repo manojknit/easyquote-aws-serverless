@@ -54,7 +54,6 @@ You need to install following on your computer or in cloud.
 
 ## Creating the AWS Infrastructure
 
-***Please NOTE: the following steps will incur charges on your AWS account, please see the appropriate pricing pages for the services***
 
 Set up AWS infra
    
@@ -78,17 +77,18 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying the Web Application
+###  Web Application Deployment
 
-Build the ember app and copy it to S3, note you'll need the "WebsiteBucket" output value from the above hosting cloudformation stack you generated. If you need it again, just run `aws cloudformation describe-stacks --stack-name ember-serverless-hosting` *if you used a different name, substitute that in-place of "ember-serverless-hosting", then note the `OutputValue` for "WebsiteBucket" and use that here:
+Build the ember web app and copy /AWSProjects/aws-serverless-ember/client/dist files to S3, note you'll need the "WebsiteBucket" output value from the above hosting cloudformation stack you generated. If you need it again, just run `aws cloudformation describe-stacks --stack-name ember-serverless-hosting` *if you used a different name, substitute that in-place of "ember-serverless-hosting", then note the `OutputValue` for "WebsiteBucket" and use that here:
 
     cd client
     ember build
     aws s3 sync dist/ s3://<<your-ember-website-bucket>>/ -acl public-read
 
 Once synced you can visit the URL for your S3 bucket using the `OutputValue` from the hosting template for `WebsiteURL`.
+Note: For same folder structure in S3 you can drag folder to s3.
 
-## Further Reading / Useful Links
+## References
 
 * [ember.js](http://emberjs.com/)
 * [ember-cli](https://ember-cli.com/)
@@ -96,5 +96,6 @@ Once synced you can visit the URL for your S3 bucket using the `OutputValue` fro
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-# Ember client side app with SSO, API Gateway, Lambda and DynamoDB
-# easyquote-aws-serverless
+
+Thank You
+Manoj Kumar
