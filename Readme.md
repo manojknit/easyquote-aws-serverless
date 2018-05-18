@@ -1,11 +1,10 @@
-
-![AWS Architecture Diagram](images/architecture1.png "AWS Architecture")
-
 # Serverless Web Application with approval in Step function on AWS. Alexa Skill to check status.
 
-A Serverless AWS app. It utilizes a fully serverless architecture:
+A Serverless AWS app with step function approval workflow. It utilizes a fully serverless architecture:
 
  - Cognito User Pools for authentication, registration, and confirmation
+ - Step Function for workflow approval
+ - AWS ML for prediction
  - API Gateway for REST API authenticated with Cognito User Pools
  - Lambda and DynamoDB as a Backend
  - CloudFormation and SAM for Infrastructure management
@@ -32,7 +31,11 @@ You need to install following on your computer or in cloud.
 * [Ember CLI](https://ember-cli.com/)
 * AWS account
 
-## Diagrams
+## AWS Architecture Diagram
+</br>
+AWS Architecture</br>
+<img src="images/architecture1.png">
+</br>
 Amazon Machine Learning is used to predict the appropriate quote for the user according to previously approved quotes. The CSV file containing the previously approved quotes is stored in an Amazon S3 bucket which is loaded into Amazon Machine Learning. Then, Amazon Machine Learning performs the Real-Time Bayesian prediction algorithm using the previously approved quotes and displays the result of the prediction to the screen.</br>
 AWS ML Diagram</br>
 <img src="images/AWS ML.png">
